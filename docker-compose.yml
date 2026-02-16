@@ -1,0 +1,13 @@
+version: '3.8'
+
+services:
+  chikv-analytics:
+    build: .
+    container_name: chikv_pipeline_runner
+    volumes:
+      # Mapeia a pasta local './data' para '/app/data' no container
+      - ./data:/app/data
+    environment:
+      - NCBI_EMAIL=jeferson0993@gmail.com
+    # O container roda o script e encerra (não fica em loop)
+    restart: "no"
